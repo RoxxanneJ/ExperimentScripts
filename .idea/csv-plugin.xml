@@ -31,6 +31,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/DataDeterioration/DeterioratedDatasets/iris/missing/iris_missingTEST_25.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
       </map>
     </option>
   </component>
