@@ -3,6 +3,13 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
+        <entry key="/DataDeterioration/DeterioratedDatasets/abalone/feature_importances.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/DataDeterioration/DeterioratedDatasets/abalone/missing+outlier/abalone_missing_outlier_5.csv">
           <value>
             <Attribute>
