@@ -1,23 +1,21 @@
+import pandas as pd
+import utils.data_quality_metric as dqm
+from multiprocessing import freeze_support
+
+models = ['logistic regression', 'knn', 'decision tree', 'random forest', 'ada boost', 'naive bayes', 'xgboost',
+          'svc', 'gaussian process', 'mlp', 'sgd', 'gradient boosting']
+datasets = ["iris", "cancer", "adult", "heart", "abalone", "spambase", "statlog", "bean"]
+errors = ["missing", "outlier", "fuzzing", "missing_outlier"]
+crt_names = ["missing", "outlier", "fuzzing"]
+
 if __name__ == '__main__':
     freeze_support()
-    cpus = cpu_count()
-    for error in ['fuzzing']:
-        for dataset in ['statlog', 'spambase']:
-            path = 'dataset/' + dataset + '/'
+    for error in errors:
+        for dataset in datasets:
+            path = "../DataDeterioration/DeterioratedDatasets/" + dataset + "/" + error + "/"
             for p in range(5, 55, 5):
-                test_trusted = pd.read_csv(path+'trusted_test/'+dataset+'_test.csv')
-                y_test_trusted = test_trusted['class'].copy()
-                test_trusted.drop(columns=['class'], inplace=True)
-                train_trusted = pd.read_csv(path + 'trusted_test/' + dataset + '_train.csv')
-                train_trusted = eg.degrade('fuzzing', train_trusted, p)
-                train_trusted.to_csv(path + 'trusted_test/' + dataset + '_train_fuzzing_' + str(p) + '.csv',
-                                     index=False)
-                y_train_trusted = train_trusted['class'].copy()
-                train_trusted.drop(columns=['class'], inplace=True)
-                dqm.dq_metric_test_para(train_trusted, test_trusted, y_train_trusted, y_test_trusted, crt_names, models,
-                                        dataset, 'trusted_test_'+dataset+'_'+error+'_'+str(p))
-                del test_trusted
-                del y_test_trusted
-                del train_trusted
-                del y_train_trusted
+                name = dataset + "_" + error + "_" + str(p)
+                df = pd.read_csv(path + name + ".csv")
+                df.dropna(inplace=True)
+                dqm.dq_metric_para(30, df, crt_names, models, dataset, name)
 
