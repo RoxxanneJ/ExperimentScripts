@@ -1,0 +1,1 @@
+depuis le train balanced on suprime 5% de la classe minoritaire (vérifier laquelle)
