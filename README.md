@@ -1,6 +1,9 @@
 # ExperimentScripts
-In DataDeterioration: the scripts to generate the artificially deteriorated datasets (MissingValues.py, Fuzzing.py, 
+This repository contains experiments results (DQComputation/OutputForVisualisation/scores), the scripts to produce them
+(DQComputation/ComputeDQ.py and DQComputation/ComputeDQReducedDimension.py). Notebooks to visualize these results with 
+figures are included in DQComputation/VisualisationNotebooks.
+
+Moreover, a second part of this repository contains the artificially generated datasets used for the experiments 
+(DataDeterioration/DeterioratedDatasets) and the scripts allowing to generate them (MissingValues.py, Fuzzing.py, 
 Outliers.py, MissingValuesOutliers.py, ClassImbalance.py).
 
-In DQComputation: the scripts to compute DQ (ComputeDQ.py, ComputeDQReducedDimension) and the outputs from our evaluations in Output with their 
-visualisations in VisualisationNotebooks (MetricEvaluation.ipynb, ClassImbalance.ipynb, ReducedFeatures.ipynb).
